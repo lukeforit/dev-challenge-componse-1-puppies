@@ -35,12 +35,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyTheme {
+                val navController = rememberNavController()
                 NavHost(
-                    navController = rememberNavController(),
+                    navController = navController,
                     startDestination = "browse"
                 ) {
-                    composable("browse") { BrowsePuppies(emptyList()) }
-                    composable("details") { PuppyDetails() }
+                    composable("browse") { BrowsePuppies(emptyList(), navController) }
+                    composable(
+                        route = "details/{id}",
+                        // Parcelable arguments are not supported now
+//                        arguments = listOf(
+//                            navArgument("puppy") {
+//                                type = NavType.ParcelableType(Puppy::class.java)
+//                            }
+//                        )
+                    ) { backStackEntry ->
+                        PuppyDetails(backStackEntry.arguments?.getString("id")!!)
+                    }
                 }
                 MyApp()
             }
