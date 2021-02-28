@@ -1,11 +1,11 @@
 package com.example.androiddevchallenge.ft.browse
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -20,11 +20,11 @@ import com.example.androiddevchallenge.data.Puppy
 
 @Composable
 fun BrowsePuppies(puppies: List<Puppy>, navController: NavController){
-    Column(
-        Modifier.verticalScroll(rememberScrollState())
+    LazyColumn(
+        state = rememberLazyListState()
     ) {
-        puppies.forEach {
-            PuppyItem(it, navController)
+        items(puppies, Puppy::id) { puppy ->
+            PuppyItem(puppy, navController)
         }
     }
 }
