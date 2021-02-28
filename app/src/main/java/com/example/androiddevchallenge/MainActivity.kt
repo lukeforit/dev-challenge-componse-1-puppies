@@ -23,14 +23,25 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.androiddevchallenge.ft.browse.BrowsePuppies
+import com.example.androiddevchallenge.ft.details.PuppyDetails
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
-// TODO no xml allowed in the challenge while nav host in all samples is in xml ¯\_(ツ)_/¯
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             MyTheme {
+                NavHost(
+                    navController = rememberNavController(),
+                    startDestination = "browse"
+                ) {
+                    composable("browse") { BrowsePuppies(emptyList()) }
+                    composable("details") { PuppyDetails() }
+                }
                 MyApp()
             }
         }
