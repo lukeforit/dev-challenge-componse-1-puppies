@@ -28,8 +28,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.data.Puppy
 import com.example.androiddevchallenge.ft.browse.BrowsePuppies
@@ -59,13 +61,14 @@ class MainActivity : AppCompatActivity() {
                     composable(
                         route = "details/{id}",
                         // Parcelable arguments are not supported now
-//                        arguments = listOf(
-//                            navArgument("puppy") {
-//                                type = NavType.ParcelableType(Puppy::class.java)
-//                            }
-//                        )
+                        arguments = listOf(
+                            navArgument("id") {
+                                type = NavType.IntType
+                            }
+                        )
                     ) { backStackEntry ->
-                        PuppyDetails(backStackEntry.arguments?.getString("id")!!)
+                        val id = backStackEntry.arguments?.getInt("id", 0)!!
+                        PuppyDetails(viewModel.puppies.value?.get(id)!!) // FIXME - this is horrible
                     }
                 }
             }

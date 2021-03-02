@@ -8,6 +8,7 @@ class PuppiesRepository {
     suspend fun getPuppies(): List<Puppy> {
         return withContext(Dispatchers.IO) {
             listOf(
+                Puppy(0, "T-Rex", "https://images.dog.ceo/breeds/terrier-patterdale/Patterdale.jpg"),
                 Puppy(1, "T-Rex", "https://images.dog.ceo/breeds/terrier-patterdale/Patterdale.jpg"),
                 Puppy(2, "Curious", "https://images.dog.ceo/breeds/pekinese/n02086079_1451.jpg"),
                 Puppy(3, "Destroyer", "https://images.dog.ceo/breeds/terrier-lakeland/n02095570_5800.jpg"),
