@@ -17,20 +17,32 @@ package com.example.androiddevchallenge
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.androiddevchallenge.data.Puppy
 import com.example.androiddevchallenge.ft.browse.BrowsePuppies
+import com.example.androiddevchallenge.ft.browse.BrowsePuppiesViewModel
 import com.example.androiddevchallenge.ft.details.PuppyDetails
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 class MainActivity : AppCompatActivity() {
+
+    private val viewModel: BrowsePuppiesViewModel by viewModels()
+
+    @ExperimentalAnimationApi
+    @ExperimentalFoundationApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -40,7 +52,10 @@ class MainActivity : AppCompatActivity() {
                     navController = navController,
                     startDestination = "browse"
                 ) {
-                    composable("browse") { BrowsePuppies(emptyList(), navController) }
+                    composable("browse") {
+                        val data: List<Puppy> by viewModel.puppies.observeAsState(emptyList())
+                        BrowsePuppies(data, navController)
+                    }
                     composable(
                         route = "details/{id}",
                         // Parcelable arguments are not supported now
@@ -53,7 +68,6 @@ class MainActivity : AppCompatActivity() {
                         PuppyDetails(backStackEntry.arguments?.getString("id")!!)
                     }
                 }
-                MyApp()
             }
         }
     }
