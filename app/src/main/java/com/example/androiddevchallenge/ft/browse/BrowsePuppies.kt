@@ -39,6 +39,7 @@ fun BrowsePuppies(puppies: List<Puppy>, navController: NavController) {
         val listState = rememberLazyListState()
         LazyColumn(state = listState) {
             puppies
+                .sortedBy(Puppy::name)
                 .groupBy { it.name[0] }
                 .forEach { (character, puppiesGroup) ->
                     stickyHeader {
@@ -59,7 +60,8 @@ fun BrowsePuppies(puppies: List<Puppy>, navController: NavController) {
         }
 
         AnimatedVisibility(
-            visible = listState.firstVisibleItemIndex > 0,
+            visible = false, // todo  disable button for now
+//            visible = listState.firstVisibleItemIndex > 0,
             enter = fadeIn(),
             exit = fadeOut(),
             modifier = Modifier.align(alignment = Alignment.BottomCenter)
