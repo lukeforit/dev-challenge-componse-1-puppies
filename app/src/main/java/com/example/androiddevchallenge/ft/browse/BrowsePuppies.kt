@@ -78,8 +78,8 @@ fun BrowsePuppies(puppies: List<Puppy>, navController: NavController) {
                         .size(100.dp)
                         .clip(CircleShape)
                         .background(
-                            color = MaterialTheme.colors.primary,
-                            shape = MaterialTheme.shapes.large
+                            color = MaterialTheme.colors.primaryVariant,
+                            shape = MaterialTheme.shapes.medium
                         )
                 )
             }
