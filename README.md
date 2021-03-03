@@ -7,12 +7,12 @@
 
 ## :scroll: Description
 <!--- Describe your app in one or two sentences -->
-
+The app displays list of dogs from the fixed repository with a search view at the top that crashes the app with weird exception. It presents details screen - just an image and a name.
 
 ## :bulb: Motivation and Context
 <!--- Optionally point readers to interesting parts of your submission. -->
 <!--- What are you especially proud of? -->
-
+Horrible experience as AS Canary can't read JDK 11 despite setting  JAVA_HOME, gradle properties or IDE settings.
 
 ## :camera_flash: Screenshots
 <!-- You can add more screenshots here if you like -->
