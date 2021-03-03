@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyTheme {
-                window.statusBarColor =MaterialTheme.colors.primary.toArgb() // fixme - ugly
+                window.statusBarColor = MaterialTheme.colors.primary.toArgb() // fixme - ugly
                 val navController = rememberNavController()
                 NavHost(
                     navController = navController,
