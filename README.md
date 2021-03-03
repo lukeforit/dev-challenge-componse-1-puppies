@@ -13,6 +13,7 @@ The app displays list of dogs from the fixed repository with a search view at th
 <!--- Optionally point readers to interesting parts of your submission. -->
 <!--- What are you especially proud of? -->
 Horrible experience as AS Canary can't read JDK 11 despite setting  JAVA_HOME, gradle properties or IDE settings.
+Plot twist: it didn't work just from the terminal ...
 
 ## :camera_flash: Screenshots
 <!-- You can add more screenshots here if you like -->
