@@ -16,9 +16,12 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ExpandLess
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -38,6 +41,16 @@ fun BrowsePuppies(puppies: List<Puppy>, navController: NavController) {
     ) {
         val listState = rememberLazyListState()
         LazyColumn(state = listState) {
+            // FIXME - this crashes the app forsome  reasons
+            item {
+                val textState = remember { mutableStateOf(TextFieldValue()) }
+                OutlinedTextField(
+                    modifier = Modifier.fillMaxWidth().padding(16.dp),
+                    value = textState.value,
+                    onValueChange = { textState.value = it },
+                    label = { Text("Search a puppy") },
+                )
+            }
             puppies
                 .sortedBy(Puppy::name)
                 .groupBy { it.name[0] }
