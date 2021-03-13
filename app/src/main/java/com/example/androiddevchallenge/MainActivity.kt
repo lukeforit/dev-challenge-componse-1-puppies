@@ -16,6 +16,7 @@
 package com.example.androiddevchallenge
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -27,8 +28,10 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.view.WindowCompat
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -50,7 +53,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyTheme {
-                window.statusBarColor = MaterialTheme.colors.primary.toArgb() // fixme - ugly
+                window.statusBarColor = MaterialTheme.colors.background.toArgb()
+                window.navigationBarColor = MaterialTheme.colors.background.toArgb()
+
+                @Suppress("DEPRECATION")
+                if (MaterialTheme.colors.surface.luminance() > 0.5f) {
+                    window.decorView.systemUiVisibility = window.decorView.systemUiVisibility or
+                            View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+                }
+
+                @Suppress("DEPRECATION")
+                if (MaterialTheme.colors.surface.luminance() > 0.5f) {
+                    window.decorView.systemUiVisibility = window.decorView.systemUiVisibility or
+                            View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
+                }
+
                 val navController = rememberNavController()
                 NavHost(
                     navController = navController,
