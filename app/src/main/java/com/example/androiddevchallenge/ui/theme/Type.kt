@@ -19,25 +19,44 @@ import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 
-// Set of Material typography styles to start with
 val typography = Typography(
+    h1 = TextStyle(
+        fontFamily = FontFamily.SansSerif,
+        fontSize = 28.sp,
+        letterSpacing = 1.15.em,
+        fontWeight = FontWeight.Light,
+    ),
+    h2 = TextStyle(
+        fontFamily = FontFamily.SansSerif,
+        fontSize = 15.sp,
+        letterSpacing = 1.15.em,
+        fontWeight = FontWeight.Normal,
+    ),
+    h3 = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontSize = 14.sp,
+        letterSpacing = 0.em,
+        fontWeight = FontWeight.Bold,
+    ),
     body1 = TextStyle(
         fontFamily = FontFamily.Default,
+        fontSize = 14.sp,
+        letterSpacing = 0.em,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
-    )
-        /* Other default text styles to override
+    ),
     button = TextStyle(
         fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.W500,
-        fontSize = 14.sp
+        fontSize = 14.sp,
+        letterSpacing = 1.15.em,
+        fontWeight = FontWeight.SemiBold,
     ),
     caption = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontFamily = FontFamily.SansSerif,
+        fontSize = 12.sp,
+        letterSpacing = 1.15.em,
         fontWeight = FontWeight.Normal,
-        fontSize = 12.sp
     )
-    */
 )
