@@ -58,5 +58,9 @@ val typography = Typography(
         fontSize = 12.sp,
         letterSpacing = 1.15.em,
         fontWeight = FontWeight.Normal,
+    ),
+    // Fixes crash for https://issuetracker.google.com/issues/182881244
+    subtitle1 = TextStyle(
+        letterSpacing = 0.em
     )
 )
