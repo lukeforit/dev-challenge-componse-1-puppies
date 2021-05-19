@@ -33,12 +33,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material.*
 import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ExpandLess
 import androidx.compose.runtime.Composable
@@ -62,6 +58,7 @@ import com.example.androiddevchallenge.data.Puppy
 fun BrowsePuppies(puppies: List<Puppy>, navController: NavController) {
     Box(
         modifier = Modifier
+            .background(color = MaterialTheme.colors.background)
             .fillMaxWidth()
             .fillMaxHeight()
     ) {
@@ -82,7 +79,7 @@ fun BrowsePuppies(puppies: List<Puppy>, navController: NavController) {
                 .groupBy { it.name[0] }
                 .forEach { (character, puppiesGroup) ->
                     stickyHeader {
-                        Surface(color = MaterialTheme.colors.secondary) {
+                        Surface(color = MaterialTheme.colors.surface) {
                             Text(
                                 text = character.toString(),
                                 modifier = Modifier
