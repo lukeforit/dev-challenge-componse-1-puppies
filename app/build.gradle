@@ -80,6 +80,9 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
 
+    // This causes compilation error with Could not find androidx.ui:ui-material-icons-extended:1.0.0-beta07
+//    implementation "androidx.ui:ui-material-icons-extended:$compose_version"
+
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3'
 
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.4"
