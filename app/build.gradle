@@ -89,7 +89,7 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:2.3.4"
     implementation "androidx.navigation:navigation-compose:1.0.0-alpha09"
 
-    implementation "dev.chrisbanes.accompanist:accompanist-glide:0.6.1"
+    implementation "com.google.accompanist:accompanist-glide:0.8.0"
     implementation "dev.chrisbanes.accompanist:accompanist-insets:0.6.2"
 
     testImplementation 'junit:junit:4.13.2'
