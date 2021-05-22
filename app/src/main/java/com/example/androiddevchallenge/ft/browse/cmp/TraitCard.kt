@@ -32,7 +32,8 @@ fun TraitCard() {
                     .fillMaxHeight()
                     .background(color = MaterialTheme.colors.background)
                     .aspectRatio(1f)
-                    .padding(8.dp)
+                    .padding(8.dp),
+                tint = MaterialTheme.colors.onBackground
             )
             Text(
                 text = "Dog's trait",
