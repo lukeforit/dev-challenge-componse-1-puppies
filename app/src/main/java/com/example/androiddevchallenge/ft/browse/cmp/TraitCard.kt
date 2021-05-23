@@ -13,10 +13,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.androiddevchallenge.data.entity.Trait
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 @Composable
-fun TraitCard() {
+fun TraitCard(trait: Trait) {
     Card(
         shape = MaterialTheme.shapes.small,
         modifier = Modifier.size(width = 192.dp, height = 56.dp)
@@ -36,10 +37,9 @@ fun TraitCard() {
                 tint = MaterialTheme.colors.onBackground
             )
             Text(
-                text = "Dog's trait",
+                text = trait.name,
                 style = MaterialTheme.typography.h3,
                 modifier = Modifier.padding(horizontal = 16.dp),
-
             )
         }
     }
@@ -49,6 +49,6 @@ fun TraitCard() {
 @Composable
 fun TraitCardPreview() {
     MyTheme {
-        TraitCard()
+        TraitCard(Trait.CALM)
     }
 }
