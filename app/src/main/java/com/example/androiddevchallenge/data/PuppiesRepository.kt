@@ -15,7 +15,9 @@
  */
 package com.example.androiddevchallenge.data
 
+import com.example.androiddevchallenge.data.entity.Breed
 import com.example.androiddevchallenge.data.entity.Puppy
+import com.example.androiddevchallenge.data.entity.Trait
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -35,6 +37,18 @@ class PuppiesRepository {
                 Puppy(8, "Giant", "https://images.dog.ceo/breeds/mountain-swiss/n02107574_2222.jpg"),
                 Puppy(9, "Buddy", "https://images.dog.ceo/breeds/rottweiler/n02106550_13213.jpg"),
             )
+        }
+    }
+
+    suspend fun getBreeds(): List<Breed>{
+        return withContext(Dispatchers.IO) {
+            Breed.values().toList()
+        }
+    }
+
+    suspend fun getTraits(): List<Trait>{
+        return withContext(Dispatchers.IO) {
+            Trait.values().toList()
         }
     }
 }

@@ -10,4 +10,12 @@
       the License.
       -->
     <string name="app_name">AndroidDevChallenge</string>
+
+    <string name="breed_american_bulldog">American Bulldog</string>
+    <string name="breed_basenji">Basenji</string>
+    <string name="breed_beagle">Beagle</string>
+    <string name="breed_boerboel">Boerboel</string>
+    <string name="breed_boxer">Boxer</string>
+    <string name="breed_chihuahua">Chihuahua</string>
+    <string name="breed_dalmatian">Dalmatian</string>
 </resources>
