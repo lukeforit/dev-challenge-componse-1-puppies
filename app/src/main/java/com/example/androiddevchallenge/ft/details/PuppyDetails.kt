@@ -27,7 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.androiddevchallenge.data.Puppy
+import com.example.androiddevchallenge.data.entity.Puppy
 import com.google.accompanist.glide.GlideImage
 
 @Composable

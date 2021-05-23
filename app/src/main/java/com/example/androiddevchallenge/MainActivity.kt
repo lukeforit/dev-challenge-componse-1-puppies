@@ -31,13 +31,12 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.core.view.WindowCompat
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
-import com.example.androiddevchallenge.data.Puppy
+import com.example.androiddevchallenge.data.entity.Puppy
 import com.example.androiddevchallenge.ft.browse.BrowsePuppies
 import com.example.androiddevchallenge.ft.browse.BrowsePuppiesViewModel
 import com.example.androiddevchallenge.ft.details.PuppyDetails

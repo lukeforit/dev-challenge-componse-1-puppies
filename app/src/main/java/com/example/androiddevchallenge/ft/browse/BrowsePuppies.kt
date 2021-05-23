@@ -50,7 +50,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
-import com.example.androiddevchallenge.data.Puppy
+import com.example.androiddevchallenge.data.entity.Puppy
 
 @ExperimentalAnimationApi
 @ExperimentalFoundationApi

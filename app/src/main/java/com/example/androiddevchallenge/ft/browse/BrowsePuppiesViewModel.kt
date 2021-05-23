@@ -19,7 +19,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.example.androiddevchallenge.data.PuppiesRepository
-import com.example.androiddevchallenge.data.Puppy
+import com.example.androiddevchallenge.data.entity.Puppy
 
 class BrowsePuppiesViewModel : ViewModel() {
 
