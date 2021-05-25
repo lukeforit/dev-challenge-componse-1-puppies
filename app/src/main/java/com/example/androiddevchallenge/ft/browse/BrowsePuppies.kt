@@ -51,6 +51,8 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.data.entity.Puppy
+import com.example.androiddevchallenge.data.entity.Trait
+import com.example.androiddevchallenge.ft.browse.cmp.TraitsHorizontalGrid
 
 @ExperimentalAnimationApi
 @ExperimentalFoundationApi
@@ -73,6 +75,9 @@ fun BrowsePuppies(puppies: List<Puppy>, navController: NavController) {
                     onValueChange = { textState.value = it },
                     label = { Text("Search a puppy") },
                 )
+            }
+            item {
+                TraitsHorizontalGrid(traits = Trait.values().toList())
             }
             puppies
                 .sortedBy(Puppy::name)
