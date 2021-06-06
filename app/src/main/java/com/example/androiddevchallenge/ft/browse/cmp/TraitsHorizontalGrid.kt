@@ -2,6 +2,7 @@ package com.example.androiddevchallenge.ft.browse.cmp
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
@@ -27,6 +28,7 @@ fun TraitsHorizontalGrid(traits: List<Trait>) {
                     verticalArrangement = Arrangement.SpaceBetween
                 ) {
                     TraitCard(trait = itemScope.first)
+                    Spacer(modifier = Modifier.padding(8.dp))
                     TraitCard(trait = itemScope.second)
                 }
             }
@@ -37,5 +39,5 @@ fun TraitsHorizontalGrid(traits: List<Trait>) {
 @Preview
 @Composable
 fun TraitsHorizontalGridPreview() {
-    TraitsHorizontalGrid(emptyList())
+    TraitsHorizontalGrid(listOf(Trait.CALM, Trait.DEFENDER))
 }

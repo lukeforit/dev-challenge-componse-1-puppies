@@ -31,10 +31,10 @@ fun TraitCard(trait: Trait) {
                 contentDescription = "",
                 modifier = Modifier
                     .fillMaxHeight()
-                    .background(color = MaterialTheme.colors.background)
+                    .background(color = MaterialTheme.colors.secondary)
                     .aspectRatio(1f)
                     .padding(8.dp),
-                tint = MaterialTheme.colors.onBackground
+                tint = MaterialTheme.colors.onSecondary
             )
             Text(
                 text = trait.name,
