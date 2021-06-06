@@ -11,6 +11,7 @@ import androidx.compose.material.icons.rounded.ChildFriendly
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.data.entity.Trait
@@ -37,7 +38,7 @@ fun TraitCard(trait: Trait) {
                 tint = MaterialTheme.colors.onSecondary
             )
             Text(
-                text = trait.name,
+                text = stringResource(id = trait.nameId),
                 style = MaterialTheme.typography.h3,
                 modifier = Modifier.padding(horizontal = 16.dp),
             )

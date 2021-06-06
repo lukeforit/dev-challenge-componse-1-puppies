@@ -18,4 +18,13 @@
     <string name="breed_boxer">Boxer</string>
     <string name="breed_chihuahua">Chihuahua</string>
     <string name="breed_dalmatian">Dalmatian</string>
+
+    <string name="trait_kids_friendly">Kids friendly</string>
+    <string name="trait_friendly_to_all">Friendly to all</string>
+    <string name="trait_defender">Defender</string>
+    <string name="trait_energetic">Energetic</string>
+    <string name="trait_calm">Calm</string>
+    <string name="trait_hairless">Hairless</string>
+    <string name="trait_independent">Independent</string>
+    <string name="trait_easy_training">Easy to train</string>
 </resources>
