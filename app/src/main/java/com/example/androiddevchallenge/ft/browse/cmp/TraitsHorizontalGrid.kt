@@ -2,6 +2,7 @@ package com.example.androiddevchallenge.ft.browse.cmp
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.height
@@ -19,13 +20,13 @@ import com.example.androiddevchallenge.data.entity.Trait
 fun TraitsHorizontalGrid(traits: List<Trait>) {
     LazyRow(
         modifier = Modifier.fillMaxHeight(),
-        state = rememberLazyListState()
+        state = rememberLazyListState(),
+        contentPadding = PaddingValues(horizontal = 16.dp)
     ) {
         items(
             items = traits.zipWithNext(),
             itemContent = { itemScope ->
                 Column(
-                    modifier = Modifier.padding(start = 8.dp),
                     verticalArrangement = Arrangement.SpaceBetween
                 ) {
                     TraitCard(trait = itemScope.first)

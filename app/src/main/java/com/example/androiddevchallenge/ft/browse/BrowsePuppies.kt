@@ -22,6 +22,7 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -52,6 +53,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.data.entity.Puppy
 import com.example.androiddevchallenge.data.entity.Trait
 import com.example.androiddevchallenge.ft.browse.cmp.TraitsHorizontalGrid
+import com.example.androiddevchallenge.ui.theme.MyTheme
 
 @ExperimentalAnimationApi
 @ExperimentalFoundationApi
@@ -64,15 +66,25 @@ fun BrowsePuppies(puppies: List<Puppy>, navController: NavController) {
             .fillMaxHeight()
     ) {
         val listState = rememberLazyListState()
-        LazyColumn(state = listState) {
+        LazyColumn(
+            state = listState,
+            verticalArrangement = Arrangement.spacedBy(24.dp),
+        ) {
             // FIXME - this crashes the app forsome  reasons
             item {
                 val textState = remember { mutableStateOf(TextFieldValue()) }
-                OutlinedTextField(
-                    modifier = Modifier.fillMaxWidth().padding(16.dp),
+                TextField(
                     value = textState.value,
                     onValueChange = { textState.value = it },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                    textStyle = MaterialTheme.typography.body1,
                     label = { Text("Search a puppy") },
+                    singleLine = true,
+                    colors = TextFieldDefaults.outlinedTextFieldColors(
+                        backgroundColor = MaterialTheme.colors.surface
+                    )
                 )
             }
             item {
@@ -152,8 +164,10 @@ fun PuppyItem(puppy: Puppy, navController: NavController) {
 @Preview
 @Composable
 fun BrowsePuppiesPreview() {
-    BrowsePuppies(
-        listOf(Puppy(0, "test", "test")),
-        rememberNavController()
-    )
+    MyTheme {
+        BrowsePuppies(
+            listOf(Puppy(0, "test", "test")),
+            rememberNavController()
+        )
+    }
 }
