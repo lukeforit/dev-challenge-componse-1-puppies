@@ -1,6 +1,7 @@
 package com.example.androiddevchallenge.ft.browse.cmp
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
 import androidx.compose.material.Icon
@@ -21,7 +22,9 @@ import com.example.androiddevchallenge.ui.theme.MyTheme
 fun TraitCard(trait: Trait) {
     Card(
         shape = MaterialTheme.shapes.small,
-        modifier = Modifier.size(width = 192.dp, height = 56.dp)
+        modifier = Modifier
+            .size(width = 192.dp, height = 56.dp)
+            .clickable {}
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
