@@ -29,6 +29,9 @@ fun TraitsHorizontalGrid(traits: List<Trait>) {
             modifier = Modifier.padding(start = 16.dp)
         )
         Spacer(Modifier.size(8.dp))
+        // FIXME Issue with scrolling https://issuetracker.google.com/issues/188566058
+        //  beta08 brings again:
+        //  API 'BaseVariant.getApplicationIdTextResource' is obsolete and has been replaced with 'VariantProperties.applicationId'.
         LazyRow(
             modifier = Modifier.fillMaxHeight(),
             state = rememberLazyListState(),
