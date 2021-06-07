@@ -36,14 +36,17 @@ fun TraitsHorizontalGrid(traits: List<Trait>) {
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             items(
-                items = traits.zipWithNext(),
+                items = traits.chunked(2),
+                key = { it.first().ordinal },
                 itemContent = { itemScope ->
                     Column(
                         verticalArrangement = Arrangement.SpaceBetween
                     ) {
-                        TraitCard(trait = itemScope.first)
-                        Spacer(modifier = Modifier.height(8.dp))
-                        TraitCard(trait = itemScope.second)
+                        TraitCard(trait = itemScope.first())
+                        if (itemScope.size > 1) {
+                            Spacer(modifier = Modifier.height(8.dp))
+                            TraitCard(trait = itemScope[1])
+                        }
                     }
                 }
             )
