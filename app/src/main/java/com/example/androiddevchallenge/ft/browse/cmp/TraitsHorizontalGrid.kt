@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.data.entity.Trait
+import com.example.androiddevchallenge.ui.theme.MyTheme
 
 @Composable
 fun TraitsHorizontalGrid(traits: List<Trait>) {
@@ -54,5 +55,7 @@ fun TraitsHorizontalGrid(traits: List<Trait>) {
 @Preview
 @Composable
 fun TraitsHorizontalGridPreview() {
-    TraitsHorizontalGrid(listOf(Trait.CALM, Trait.DEFENDER))
+    MyTheme {
+        TraitsHorizontalGrid(listOf(Trait.CALM, Trait.DEFENDER, Trait.EASY_TRAINING))
+    }
 }
