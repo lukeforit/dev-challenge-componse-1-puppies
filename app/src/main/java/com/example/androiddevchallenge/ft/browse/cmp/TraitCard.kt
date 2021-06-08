@@ -39,7 +39,7 @@ fun TraitCard(trait: Trait) {
             horizontalArrangement = Arrangement.Start
         ) {
             Icon(
-                imageVector = Icons.Rounded.ChildFriendly,
+                imageVector = trait.icon,
                 contentDescription = "",
                 modifier = Modifier
                     .fillMaxHeight()
