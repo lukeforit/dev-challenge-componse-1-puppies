@@ -16,7 +16,6 @@
 package com.example.androiddevchallenge
 
 import android.os.Bundle
-import android.view.View
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -28,9 +27,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
-import androidx.compose.ui.graphics.luminance
-import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.view.WindowCompat
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -41,6 +39,7 @@ import com.example.androiddevchallenge.ft.browse.BrowsePuppies
 import com.example.androiddevchallenge.ft.browse.BrowsePuppiesViewModel
 import com.example.androiddevchallenge.ft.details.PuppyDetails
 import com.example.androiddevchallenge.ui.theme.MyTheme
+import com.google.accompanist.insets.ProvideWindowInsets
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,43 +49,33 @@ class MainActivity : AppCompatActivity() {
     @ExperimentalFoundationApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
         setContent {
+
             MyTheme {
-                window.statusBarColor = MaterialTheme.colors.background.toArgb()
-                window.navigationBarColor = MaterialTheme.colors.background.toArgb()
-
-                @Suppress("DEPRECATION")
-                if (MaterialTheme.colors.surface.luminance() > 0.5f) {
-                    window.decorView.systemUiVisibility = window.decorView.systemUiVisibility or
-                            View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-                }
-
-                @Suppress("DEPRECATION")
-                if (MaterialTheme.colors.surface.luminance() > 0.5f) {
-                    window.decorView.systemUiVisibility = window.decorView.systemUiVisibility or
-                            View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
-                }
-
-                val navController = rememberNavController()
-                NavHost(
-                    navController = navController,
-                    startDestination = "browse"
-                ) {
-                    composable("browse") {
-                        val data: List<Puppy> by viewModel.puppies.observeAsState(emptyList())
-                        BrowsePuppies(data, navController)
-                    }
-                    composable(
-                        route = "details/{id}",
-                        // Parcelable arguments are not supported now
-                        arguments = listOf(
-                            navArgument("id") {
-                                type = NavType.IntType
-                            }
-                        )
-                    ) { backStackEntry ->
-                        val id = backStackEntry.arguments?.getInt("id", 0)!!
-                        PuppyDetails(viewModel.puppies.value?.get(id)!!) // FIXME - this is horrible
+                ProvideWindowInsets {
+                    val navController = rememberNavController()
+                    NavHost(
+                        navController = navController,
+                        startDestination = "browse"
+                    ) {
+                        composable("browse") {
+                            val data: List<Puppy> by viewModel.puppies.observeAsState(emptyList())
+                            BrowsePuppies(data, navController)
+                        }
+                        composable(
+                            route = "details/{id}",
+                            // Parcelable arguments are not supported now
+                            arguments = listOf(
+                                navArgument("id") {
+                                    type = NavType.IntType
+                                }
+                            )
+                        ) { backStackEntry ->
+                            val id = backStackEntry.arguments?.getInt("id", 0)!!
+                            PuppyDetails(viewModel.puppies.value?.get(id)!!) // FIXME - this is horrible
+                        }
                     }
                 }
             }
