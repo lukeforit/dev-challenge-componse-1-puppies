@@ -26,13 +26,13 @@ val typography = Typography(
     h1 = TextStyle(
         fontFamily = FontFamily.SansSerif,
         fontSize = 28.sp,
-        letterSpacing = 0.15.em,
+        letterSpacing = 0.10.em,
         fontWeight = FontWeight.Light,
     ),
     h2 = TextStyle(
         fontFamily = FontFamily.SansSerif,
         fontSize = 15.sp,
-        letterSpacing = 0.15.em,
+        letterSpacing = 0.10.em,
         fontWeight = FontWeight.Normal,
     ),
     h3 = TextStyle(
@@ -50,13 +50,13 @@ val typography = Typography(
     button = TextStyle(
         fontFamily = FontFamily.Default,
         fontSize = 14.sp,
-        letterSpacing = 0.15.em,
+        letterSpacing = 0.10.em,
         fontWeight = FontWeight.SemiBold,
     ),
     caption = TextStyle(
         fontFamily = FontFamily.SansSerif,
         fontSize = 12.sp,
-        letterSpacing = 0.15.em,
+        letterSpacing = 0.10.em,
         fontWeight = FontWeight.Normal,
     ),
     // Fixes crash for https://issuetracker.google.com/issues/182881244

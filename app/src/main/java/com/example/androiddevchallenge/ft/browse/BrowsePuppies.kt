@@ -95,7 +95,7 @@ fun BrowsePuppies(puppies: List<Puppy>, navController: NavController) {
                     textStyle = MaterialTheme.typography.body1,
                     label = { Text("Search a puppy") },
                     singleLine = true,
-                    colors = TextFieldDefaults.outlinedTextFieldColors(
+                    colors = TextFieldDefaults.textFieldColors(
                         backgroundColor = MaterialTheme.colors.surface
                     )
                 )

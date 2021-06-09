@@ -51,6 +51,7 @@ fun TraitCard(trait: Trait) {
             Text(
                 text = stringResource(id = trait.nameId),
                 style = MaterialTheme.typography.h3,
+                color = MaterialTheme.colors.onSurface,
                 modifier = Modifier.padding(horizontal = 16.dp),
             )
         }
