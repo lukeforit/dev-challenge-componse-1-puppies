@@ -15,11 +15,10 @@
  */
 package com.example.androiddevchallenge.ft.details
 
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
-import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -28,19 +27,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.data.entity.Puppy
-import com.google.accompanist.glide.GlideImage
+import com.google.accompanist.glide.rememberGlidePainter
 
 @Composable
 fun PuppyDetails(puppy: Puppy) {
     Column {
-        GlideImage(
-            data = puppy.img,
+        Image(
+            painter = rememberGlidePainter(puppy.img, fadeIn = true),
             contentDescription = "My content description",
-            loading = {
-                Box(Modifier.matchParentSize()) {
-                    CircularProgressIndicator(Modifier.align(Alignment.Center))
-                }
-            },
+//            loading = {
+//                Box(Modifier.matchParentSize()) {
+//                    CircularProgressIndicator(Modifier.align(Alignment.Center))
+//                }
+//            },
         )
 
         Text(
@@ -49,7 +48,10 @@ fun PuppyDetails(puppy: Puppy) {
             modifier = Modifier.padding(16.dp)
         )
 
-        Button(onClick = { /*TODO*/ }, Modifier.padding(4.dp).align(Alignment.CenterHorizontally)) {
+        Button(onClick = { /*TODO*/ },
+            Modifier
+                .padding(4.dp)
+                .align(Alignment.CenterHorizontally)) {
             Text(text = "Take me home!")
         }
     }
