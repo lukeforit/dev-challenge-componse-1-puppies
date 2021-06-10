@@ -17,6 +17,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
+import com.example.androiddevchallenge.MyApp
+import com.example.androiddevchallenge.R
+import com.example.androiddevchallenge.ui.theme.MyTheme
 import com.google.accompanist.glide.rememberGlidePainter
 
 @Composable
@@ -31,6 +34,7 @@ fun Highlight(uri: String, text: String) {
                 requestBuilder = {
                     transform(CircleCrop())
                 },
+                previewPlaceholder = R.drawable.ic_pawprint_outline
             ),
             contentDescription = "",
             modifier = Modifier
@@ -52,5 +56,7 @@ fun Highlight(uri: String, text: String) {
 @Preview
 @Composable
 fun HighlightPreview() {
-    Highlight("", "Highlight")
+    MyTheme {
+        Highlight("", "Highlight")
+    }
 }
