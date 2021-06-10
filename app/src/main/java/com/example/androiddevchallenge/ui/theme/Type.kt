@@ -39,7 +39,7 @@ val typography = Typography(
         fontFamily = FontFamily.Default,
         fontSize = 13.sp,
         letterSpacing = 0.em,
-        fontWeight = FontWeight.Bold,
+        fontWeight = FontWeight.SemiBold,
     ),
     body1 = TextStyle(
         fontFamily = FontFamily.Default,
