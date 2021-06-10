@@ -56,8 +56,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.androiddevchallenge.data.entity.Breed
 import com.example.androiddevchallenge.data.entity.Puppy
 import com.example.androiddevchallenge.data.entity.Trait
+import com.example.androiddevchallenge.ft.browse.cmp.HighlightsHorizontalList
 import com.example.androiddevchallenge.ft.browse.cmp.TraitsHorizontalGrid
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
@@ -102,6 +104,9 @@ fun BrowsePuppies(puppies: List<Puppy>, navController: NavController) {
             }
             item {
                 TraitsHorizontalGrid(traits = Trait.values().toList())
+            }
+            item {
+                HighlightsHorizontalList(breeds = Breed.values().toList())
             }
             puppies
                 .sortedBy(Puppy::name)
