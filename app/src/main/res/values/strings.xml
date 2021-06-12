@@ -17,7 +17,12 @@
     <string name="breed_boerboel">Boerboel</string>
     <string name="breed_boxer">Boxer</string>
     <string name="breed_chihuahua">Chihuahua</string>
+    <string name="breed_cairn_terrier">Cairn Terrier</string>
+    <string name="breed_cavalier_kc_spaniel">Cavalier King Charles Spaniel</string>
     <string name="breed_dalmatian">Dalmatian</string>
+    <string name="breed_entlebucher_mountain_dog">Entlebucher Mountain Dog</string>
+    <string name="breed_french_bulldog">French Bulldog</string>
+    <string name="breed_german_shepherd_dog">German Shepherd Dog</string>
 
     <string name="trait_kids_friendly">Kids friendly</string>
     <string name="trait_friendly_to_all">Friendly to all</string>

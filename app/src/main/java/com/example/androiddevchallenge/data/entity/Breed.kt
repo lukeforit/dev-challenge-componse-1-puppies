@@ -29,6 +29,14 @@ enum class Breed(
         R.string.breed_boxer,
         "${BASE_URL}2017/11/04135344/Boxer-puppy-laying-down.jpg"
     ),
+    CARIN_TERRIER(
+        R.string.breed_cairn_terrier,
+        "${BASE_URL}2017/11/01152943/Cairn-Terrier-puppies.jpg"
+    ),
+    CAVALIER_KC_SPANIEL(
+        R.string.breed_cavalier_kc_spaniel,
+        "${BASE_URL}2017/11/07130300/Cavalier-King-Charles-Spaniel_Puppy_Grass.jpg"
+    ),
     CHIHUAHUA(
         R.string.breed_chihuahua,
         "${BASE_URL}2017/11/27134552/Chihuahua-laying-down-with-her-puppies.jpg"
@@ -36,5 +44,17 @@ enum class Breed(
     DALMATIAN(
         R.string.breed_dalmatian,
         "${BASE_URL}2017/11/04143301/Dalmatian-puppies-sitting-in-a-row.jpg"
+    ),
+    ENTLEBUCHER_MOUNTAIN_DOG(
+        R.string.breed_entlebucher_mountain_dog,
+        "${BASE_URL}2017/11/01172001/Entlebucher-Mountain-Dog-puppy-laying-down-in-the-grass.jpg"
+    ),
+    FRENCH_BULLDOG(
+        R.string.breed_french_bulldog,
+        "${BASE_URL}2017/11/31120606/French-Bulldog-puppy-rolling-over-on-a-white-background.jpg"
+    ),
+    GERMAN_SHEPHERD_DOG(
+        R.string.breed_german_shepherd_dog,
+        "${BASE_URL}2017/11/11181218/German-Shepherd-puppies.jpg"
     ),
 }
