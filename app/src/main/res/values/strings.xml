@@ -27,4 +27,8 @@
     <string name="trait_hairless">Hairless</string>
     <string name="trait_independent">Independent</string>
     <string name="trait_easy_training">Easy to train</string>
+
+    <!-- Screen based text -->
+    <string name="browse_highlight_featured">Featured</string>
+    <string name="browse_highlight_best_for_apartments">Best for apartments</string>
 </resources>

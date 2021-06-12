@@ -21,10 +21,10 @@ import com.example.androiddevchallenge.data.entity.Breed
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 @Composable
-fun HighlightsHorizontalList(breeds: List<Breed>) {
+fun HighlightsHorizontalList(title: String, breeds: List<Breed>) {
     Column {
         Text(
-            text = "Featured",
+            text = title,
             style = MaterialTheme.typography.h2,
             color = MaterialTheme.colors.onBackground,
             modifier = Modifier.padding(start = 16.dp)
@@ -50,6 +50,6 @@ fun HighlightsHorizontalList(breeds: List<Breed>) {
 @Composable
 fun HighlightsHorizontalListPreview() {
     MyTheme {
-        HighlightsHorizontalList(listOf(Breed.AMERICAN_BULLDOG, Breed.BOXER))
+        HighlightsHorizontalList("Breeds", listOf(Breed.AMERICAN_BULLDOG, Breed.BOXER))
     }
 }
