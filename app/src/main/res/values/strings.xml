@@ -36,4 +36,5 @@
     <!-- Screen based text -->
     <string name="browse_highlight_featured">Featured</string>
     <string name="browse_highlight_best_for_apartments">Best for apartments</string>
+    <string name="browse_highlight_quick_to_learn">Quick to learn</string>
 </resources>
