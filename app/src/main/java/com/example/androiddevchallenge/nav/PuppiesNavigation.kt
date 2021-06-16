@@ -14,6 +14,7 @@ import com.example.androiddevchallenge.data.entity.Puppy
 import com.example.androiddevchallenge.ft.browse.BrowsePuppies
 import com.example.androiddevchallenge.PuppiesMainViewModel
 import com.example.androiddevchallenge.ft.details.PuppyDetails
+import com.example.androiddevchallenge.ft.search.SearchPuppies
 
 @ExperimentalFoundationApi
 @ExperimentalAnimationApi
@@ -28,10 +29,20 @@ fun PuppiesNavigation(
     ) {
         composable(Destination.Browse.route) {
             val data: List<Puppy> by viewModel.puppies.observeAsState(emptyList())
-            BrowsePuppies(data, navController)
+            BrowsePuppies(
+                puppies = data,
+                openSearch = { navController.navigate(Destination.Search.route) }
+            )
+        }
+        composable(Destination.Search.route) {
+            SearchPuppies(
+                openPuppyDetails = { id ->
+                    navController.navigate("${Destination.PuppyDetails.route}/${id}")
+                }
+            )
         }
         composable(
-            route = "${Destination.Browse.route}/{id}",
+            route = "${Destination.PuppyDetails.route}/{id}",
             // Parcelable arguments are not supported now
             arguments = listOf(
                 navArgument("id") {

@@ -38,8 +38,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.data.entity.Breed
 import com.example.androiddevchallenge.data.entity.Puppy
@@ -51,7 +49,10 @@ import com.example.androiddevchallenge.ui.theme.MyTheme
 @ExperimentalAnimationApi
 @ExperimentalFoundationApi
 @Composable
-fun BrowsePuppies(puppies: List<Puppy>, mainNavController: NavController) {
+fun BrowsePuppies(
+    puppies: List<Puppy>,
+    openSearch: () -> Unit,
+) {
     Box(
         modifier = Modifier
             .background(color = MaterialTheme.colors.background)
@@ -118,8 +119,7 @@ fun BrowsePuppies(puppies: List<Puppy>, mainNavController: NavController) {
 fun BrowsePuppiesPreview() {
     MyTheme {
         BrowsePuppies(
-            listOf(Puppy(0, "test", "test")),
-            rememberNavController()
-        )
+            listOf(Puppy(0, "test", "test"))
+        ) {}
     }
 }
