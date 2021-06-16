@@ -1,4 +1,4 @@
-package com.example.androiddevchallenge.ft.list
+package com.example.androiddevchallenge.ft.search
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row

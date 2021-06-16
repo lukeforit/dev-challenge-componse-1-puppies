@@ -28,14 +28,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
 import androidx.navigation.compose.rememberNavController
-import com.example.androiddevchallenge.ft.browse.BrowsePuppiesViewModel
 import com.example.androiddevchallenge.nav.PuppiesNavigation
 import com.example.androiddevchallenge.ui.theme.MyTheme
 import com.google.accompanist.insets.ProvideWindowInsets
 
-class MainActivity : AppCompatActivity() {
+class PuppiesMainActivity : AppCompatActivity() {
 
-    private val viewModel: BrowsePuppiesViewModel by viewModels()
+    private val viewModel: PuppiesMainViewModel by viewModels()
 
     @ExperimentalAnimationApi
     @ExperimentalFoundationApi

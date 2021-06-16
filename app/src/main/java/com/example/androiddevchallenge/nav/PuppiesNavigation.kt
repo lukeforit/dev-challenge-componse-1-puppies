@@ -12,7 +12,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.navArgument
 import com.example.androiddevchallenge.data.entity.Puppy
 import com.example.androiddevchallenge.ft.browse.BrowsePuppies
-import com.example.androiddevchallenge.ft.browse.BrowsePuppiesViewModel
+import com.example.androiddevchallenge.PuppiesMainViewModel
 import com.example.androiddevchallenge.ft.details.PuppyDetails
 
 @ExperimentalFoundationApi
@@ -20,7 +20,7 @@ import com.example.androiddevchallenge.ft.details.PuppyDetails
 @Composable
 fun PuppiesNavigation(
     navController: NavHostController,
-    viewModel: BrowsePuppiesViewModel,
+    viewModel: PuppiesMainViewModel,
 ) {
     NavHost(
         navController = navController,

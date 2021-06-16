@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.androiddevchallenge.ft.browse
+package com.example.androiddevchallenge
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -21,7 +21,7 @@ import androidx.lifecycle.liveData
 import com.example.androiddevchallenge.data.PuppiesRepository
 import com.example.androiddevchallenge.data.entity.Puppy
 
-class BrowsePuppiesViewModel : ViewModel() {
+class PuppiesMainViewModel : ViewModel() {
 
     private val puppiesRepository = PuppiesRepository()
 

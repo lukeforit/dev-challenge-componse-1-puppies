@@ -1,4 +1,4 @@
-package com.example.androiddevchallenge.ft.list
+package com.example.androiddevchallenge.ft.search
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
