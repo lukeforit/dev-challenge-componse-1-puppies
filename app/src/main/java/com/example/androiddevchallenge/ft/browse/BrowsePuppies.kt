@@ -44,6 +44,7 @@ import com.example.androiddevchallenge.data.entity.Breed
 import com.example.androiddevchallenge.data.entity.Trait
 import com.example.androiddevchallenge.ft.browse.cmp.HighlightsHorizontalList
 import com.example.androiddevchallenge.ft.browse.cmp.TraitsHorizontalGrid
+import com.example.androiddevchallenge.ui.cmp.SearchTextField
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 @ExperimentalAnimationApi
@@ -69,21 +70,12 @@ fun BrowsePuppies(openSearch: () -> Unit) {
 //            )
         ) {
             item {
-                val textState = remember { mutableStateOf(TextFieldValue()) }
-                TextField(
-                    value = textState.value,
-                    enabled = false,
-                    onValueChange = { textState.value = it },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clickable { openSearch() }
-                        .padding(horizontal = 16.dp),
-                    textStyle = MaterialTheme.typography.body1,
-                    label = { Text("Search a puppy") },
-                    singleLine = true,
-                    colors = TextFieldDefaults.textFieldColors(
-                        backgroundColor = MaterialTheme.colors.surface
-                    )
+                SearchTextField(
+                    value = TextFieldValue(),
+                    readOnly = true,
+                    onValueChange = {},
+                    onClick = openSearch,
+                    horizontalPadding = 16.dp
                 )
             }
             item {
@@ -117,7 +109,6 @@ fun BrowsePuppies(openSearch: () -> Unit) {
 @Composable
 fun BrowsePuppiesPreview() {
     MyTheme {
-        BrowsePuppies(
-        ) {}
+        BrowsePuppies {}
     }
 }

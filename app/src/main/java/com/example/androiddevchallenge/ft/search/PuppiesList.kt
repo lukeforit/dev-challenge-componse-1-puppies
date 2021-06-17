@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -25,8 +24,6 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.material.TextField
-import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ExpandLess
 import androidx.compose.runtime.Composable
@@ -36,7 +33,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.compositeOver
 import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
 import androidx.compose.ui.input.nestedscroll.NestedScrollSource
 import androidx.compose.ui.input.nestedscroll.nestedScroll
@@ -45,8 +41,8 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.data.entity.Puppy
+import com.example.androiddevchallenge.ui.cmp.SearchTextField
 import com.google.accompanist.insets.LocalWindowInsets
-import com.google.accompanist.insets.statusBarsPadding
 import kotlin.math.roundToInt
 
 @ExperimentalFoundationApi
@@ -134,23 +130,24 @@ fun PuppiesList(puppies: List<Puppy>, openPuppyDetails: (Int) -> Unit) {
         }
 
         val textState = remember { mutableStateOf(TextFieldValue()) }
-        TextField(
+        SearchTextField(
             value = textState.value,
+            readOnly = false,
             onValueChange = { textState.value = it },
-            modifier = Modifier
-                .fillMaxWidth()
-                .statusBarsPadding()
-                .height(searchTextField)
-                .offset { IntOffset(x = 0, y = searchTextFieldOffsetPx.value.roundToInt()) }
-                .padding(horizontal = 16.dp),
-            textStyle = MaterialTheme.typography.body1,
-            label = { Text("Search a puppy") },
-            singleLine = true,
-            colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = MaterialTheme.colors.surface
-                    .compositeOver(MaterialTheme.colors.background)
-            )
+            onClick = { },
+            horizontalPadding = 16.dp
         )
+
+//        TextField(
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .statusBarsPadding()
+//                .height(searchTextField)
+//                .offset { IntOffset(x = 0, y = searchTextFieldOffsetPx.value.roundToInt()) }
+//                .padding(horizontal = 16.dp),
+//
+//            )
+//        )
     }
 
 }
