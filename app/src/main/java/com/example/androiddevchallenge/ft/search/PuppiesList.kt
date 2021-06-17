@@ -41,16 +41,10 @@ import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
 import androidx.compose.ui.input.nestedscroll.NestedScrollSource
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
-import com.example.androiddevchallenge.R
-import com.example.androiddevchallenge.data.entity.Breed
 import com.example.androiddevchallenge.data.entity.Puppy
-import com.example.androiddevchallenge.data.entity.Trait
-import com.example.androiddevchallenge.ft.browse.cmp.HighlightsHorizontalList
-import com.example.androiddevchallenge.ft.browse.cmp.TraitsHorizontalGrid
 import com.google.accompanist.insets.LocalWindowInsets
 import com.google.accompanist.insets.statusBarsPadding
 import kotlin.math.roundToInt
@@ -91,21 +85,6 @@ fun PuppiesList(puppies: List<Puppy>, openPuppyDetails: (Int) -> Unit) {
             verticalArrangement = Arrangement.spacedBy(24.dp),
             contentPadding = PaddingValues(top = 56.dp),
         ) {
-            item {
-                TraitsHorizontalGrid(traits = Trait.values().toList())
-            }
-            item {
-                HighlightsHorizontalList(
-                    title = stringResource(id = R.string.browse_highlight_featured),
-                    breeds = Breed.values().toList()
-                )
-            }
-            item {
-                HighlightsHorizontalList(
-                    title = stringResource(id = R.string.browse_highlight_best_for_apartments),
-                    breeds = Breed.values().toList().shuffled()
-                )
-            }
             puppies
                 .sortedBy(Puppy::name)
                 .groupBy { it.name[0] }
