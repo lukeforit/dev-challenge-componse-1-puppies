@@ -45,7 +45,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.data.entity.Breed
 import com.example.androiddevchallenge.data.entity.Puppy
@@ -59,7 +58,7 @@ import kotlin.math.roundToInt
 @ExperimentalFoundationApi
 @ExperimentalAnimationApi
 @Composable
-fun PuppiesList(puppies: List<Puppy>, navController: NavController) {
+fun PuppiesList(puppies: List<Puppy>, openPuppyDetails: (Int) -> Unit) {
     val searchTextField = 56.dp
     val searchTextFieldPx = with(LocalDensity.current) {
         searchTextField.roundToPx().toFloat()
@@ -123,7 +122,7 @@ fun PuppiesList(puppies: List<Puppy>, navController: NavController) {
                         }
                     }
                     items(items = puppiesGroup, key = Puppy::id) { puppy ->
-                        PuppyItem(puppy, navController)
+                        PuppyItem(puppy, openPuppyDetails)
                     }
                 }
         }

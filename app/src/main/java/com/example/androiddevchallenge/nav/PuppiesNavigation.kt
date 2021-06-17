@@ -23,19 +23,19 @@ fun PuppiesNavigation(
     navController: NavHostController,
     viewModel: PuppiesMainViewModel,
 ) {
+    val data: List<Puppy> by viewModel.puppies.observeAsState(emptyList())
     NavHost(
         navController = navController,
         startDestination = Destination.Browse.route
     ) {
         composable(Destination.Browse.route) {
-            val data: List<Puppy> by viewModel.puppies.observeAsState(emptyList())
             BrowsePuppies(
-                puppies = data,
                 openSearch = { navController.navigate(Destination.Search.route) }
             )
         }
         composable(Destination.Search.route) {
             SearchPuppies(
+                puppies = data,
                 openPuppyDetails = { id ->
                     navController.navigate("${Destination.PuppyDetails.route}/${id}")
                 }

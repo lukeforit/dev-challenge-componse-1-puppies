@@ -10,16 +10,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import com.example.androiddevchallenge.data.entity.Puppy
 
 @Composable
-fun PuppyItem(puppy: Puppy, navController: NavController) {
+fun PuppyItem(puppy: Puppy, openPuppyDetails: (Int) -> Unit) {
     Row(
         modifier = Modifier
-            .clickable {
-                navController.navigate("details/${puppy.id}")
-            }
+            .clickable { openPuppyDetails(puppy.id) }
             .padding(16.dp)
             .fillMaxWidth(),
     ) {

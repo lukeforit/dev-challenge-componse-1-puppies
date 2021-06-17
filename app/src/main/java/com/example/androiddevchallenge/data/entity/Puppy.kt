@@ -20,7 +20,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Puppy(
-    val id: Long,
+    val id: Int,
     val name: String,
     val img: String,
     val desc: String = "This is description",

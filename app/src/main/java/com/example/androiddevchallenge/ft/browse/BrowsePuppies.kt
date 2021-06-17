@@ -18,6 +18,7 @@ package com.example.androiddevchallenge.ft.browse
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -40,7 +41,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.data.entity.Breed
-import com.example.androiddevchallenge.data.entity.Puppy
 import com.example.androiddevchallenge.data.entity.Trait
 import com.example.androiddevchallenge.ft.browse.cmp.HighlightsHorizontalList
 import com.example.androiddevchallenge.ft.browse.cmp.TraitsHorizontalGrid
@@ -49,10 +49,7 @@ import com.example.androiddevchallenge.ui.theme.MyTheme
 @ExperimentalAnimationApi
 @ExperimentalFoundationApi
 @Composable
-fun BrowsePuppies(
-    puppies: List<Puppy>,
-    openSearch: () -> Unit,
-) {
+fun BrowsePuppies(openSearch: () -> Unit) {
     Box(
         modifier = Modifier
             .background(color = MaterialTheme.colors.background)
@@ -75,9 +72,11 @@ fun BrowsePuppies(
                 val textState = remember { mutableStateOf(TextFieldValue()) }
                 TextField(
                     value = textState.value,
+                    enabled = false,
                     onValueChange = { textState.value = it },
                     modifier = Modifier
                         .fillMaxWidth()
+                        .clickable { openSearch() }
                         .padding(horizontal = 16.dp),
                     textStyle = MaterialTheme.typography.body1,
                     label = { Text("Search a puppy") },
@@ -119,7 +118,6 @@ fun BrowsePuppies(
 fun BrowsePuppiesPreview() {
     MyTheme {
         BrowsePuppies(
-            listOf(Puppy(0, "test", "test"))
         ) {}
     }
 }
