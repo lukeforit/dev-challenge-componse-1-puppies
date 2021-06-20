@@ -25,7 +25,8 @@ fun SearchTextField(
     readOnly: Boolean,
     onValueChange: (TextFieldValue) -> Unit,
     onClick: () -> Unit,
-    horizontalPadding: Dp
+    horizontalPadding: Dp,
+    modifier: Modifier? = null,
 ) {
     TextField(
         value = value,
@@ -40,7 +41,14 @@ fun SearchTextField(
                     this
                 }
             }
-            .padding(horizontal = horizontalPadding),
+            .padding(horizontal = horizontalPadding)
+            .composed {
+                if (modifier != null) {
+                    then(modifier)
+                } else {
+                    this
+                }
+            },
         textStyle = MaterialTheme.typography.body1,
         label = { Text(stringResource(id = R.string.cmp_search_text_field_label)) },
         singleLine = true,
