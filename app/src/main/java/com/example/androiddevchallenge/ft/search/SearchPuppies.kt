@@ -21,11 +21,14 @@ import androidx.compose.ui.input.nestedscroll.NestedScrollSource
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.data.entity.Puppy
+import com.example.androiddevchallenge.ft.search.cmp.PuppiesList
 import com.example.androiddevchallenge.ui.cmp.SearchTextField
+import com.example.androiddevchallenge.ui.theme.MyTheme
 import kotlin.math.roundToInt
 
 private object SearchPuppiesBounds {
@@ -83,5 +86,21 @@ fun SearchPuppies(puppies: List<Puppy>, openPuppyDetails: (Int) -> Unit) {
                 .padding(top = SearchPuppiesBounds.topPadding)
                 .offset { IntOffset(x = 0, y = searchTextFieldOffsetPx.value.roundToInt()) }
         )
+    }
+}
+
+@ExperimentalFoundationApi
+@ExperimentalAnimationApi
+@Preview
+@Composable
+fun SearchPuppiesPreview() {
+    MyTheme {
+        SearchPuppies(
+            listOf(
+                Puppy(0, "Test1", ""),
+                Puppy(1, "Test2", ""),
+                Puppy(2, "A Test3", "")
+            ),
+        ) {}
     }
 }
