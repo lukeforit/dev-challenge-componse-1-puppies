@@ -21,13 +21,15 @@ import com.example.androiddevchallenge.data.entity.Puppy
 @ExperimentalAnimationApi
 @Composable
 fun PuppiesList(
-    puppies: List<Puppy>, openPuppyDetails: (Int) -> Unit
+    puppies: List<Puppy>,
+    openPuppyDetails: (Int) -> Unit,
+    contentPadding: PaddingValues,
 ) {
     val listState = rememberLazyListState()
     LazyColumn(
         state = listState,
         verticalArrangement = Arrangement.spacedBy(24.dp),
-        contentPadding = PaddingValues(top = 56.dp.times(2)),
+        contentPadding = contentPadding,
     ) {
         puppies
             .sortedBy(Puppy::name)
