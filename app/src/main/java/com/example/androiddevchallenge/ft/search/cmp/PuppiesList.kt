@@ -30,7 +30,7 @@ fun PuppiesList(
     val listState = rememberLazyListState()
     LazyColumn(
         state = listState,
-        verticalArrangement = Arrangement.spacedBy(24.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
         contentPadding = contentPadding,
     ) {
         puppies
