@@ -15,8 +15,8 @@
  */
 
 buildscript {
-    ext.kotlin_version = '1.4.32'
-    ext.compose_version = '1.0.0-beta07'
+    ext.kotlin_version = '1.5.10'
+    ext.compose_version = '1.0.0-beta09'
     ext.coroutines_version = '1.4.2'
 
     repositories {
@@ -27,7 +27,7 @@ buildscript {
     dependencies {
         def nav_version = "2.3.5"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
-        classpath 'com.android.tools.build:gradle:7.1.0-alpha01'
+        classpath 'com.android.tools.build:gradle:7.1.0-alpha02'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
