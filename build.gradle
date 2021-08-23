@@ -27,13 +27,16 @@ buildscript {
     dependencies {
         def nav_version = "2.3.5"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
-        classpath 'com.android.tools.build:gradle:7.1.0-alpha02'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        classpath "com.android.tools.build:gradle:${libs.versions.gradle.tools.get()}"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${libs.versions.kotlin.get()}"
+        classpath "com.github.ben-manes:gradle-versions-plugin:${libs.versions.ben.manes.get()}"
     }
 }
 
 plugins {
     id 'com.diffplug.spotless' version '5.7.0'
+    id 'com.github.ben-manes.versions' version '0.39.0'
 }
 
 subprojects {
@@ -52,5 +55,11 @@ subprojects {
             ktlint("0.40.0")
             licenseHeaderFile rootProject.file('spotless/copyright.kt')
         }
+    }
+}
+
+tasks.named("dependencyUpdates").configure {
+    rejectVersionIf {
+        it.candidate.version.contains("alpha") && !it.currentVersion.contains("alpha")
     }
 }

@@ -1,0 +1,54 @@
+[versions]
+# AndroidX
+core = "1.6.0"
+# Compose
+compose-core = "1.0.1"
+compose-activity = "1.3.1"
+compose-navigation = "2.4.0-alpha06"
+# Navigation
+nav = "2.3.5"
+# Appcompat
+appcompat = "1.3.1"
+# Lifecycle
+lifecycle = "2.3.1"
+# Tests
+test-junit = "1.1.3"
+test-espresso-core = "3.4.0"
+
+
+[libraries]
+# AndroidX
+core = { module = "androidx.core:core-ktx", version.ref = "core" }
+appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+
+# AndroidX Compose
+compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose-core" }
+compose-material = { module = "androidx.compose.material:material", version.ref = "compose-core" }
+compose-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-core" }
+compose-activity = { module = "androidx.activity:activity-compose", version.ref = "compose-activity" }
+compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "compose-navigation" }
+compose-extended-icons = { module = "androidx.compose.material:material-icons-extended", version.ref = "compose-core" }
+compose-livedata = { module = "androidx.compose.runtime:runtime-livedata", version.ref = "compose-core" }
+
+# Navigation
+nav-fragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "nav" }
+nav-ui = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "nav" }
+
+# AndroidX Architecture
+lifecycle = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
+livedata = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycle" }
+viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+
+# Tests
+test-junit = { module = "androidx.test.ext:junit", version.ref = "test-junit" }
+test-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "test-espresso-core" }
+test-compose-junit = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose-core" }
+
+# Debug
+compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose-core" }
+
+
+[bundles]
+compose = ["compose-ui", "compose-material", "compose-preview", "compose-activity", "compose-navigation", "compose-extended-icons", "compose-livedata"]
+base = ["core", "appcompat", "livedata", "viewmodel", "nav-fragment", "nav-ui"]
+android-test = ["test-junit", "test-espresso-core", "test-compose-junit"]

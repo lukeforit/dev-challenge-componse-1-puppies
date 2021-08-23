@@ -1,2 +1,19 @@
+enableFeaturePreview("VERSION_CATALOGS")
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+    versionCatalogs {
+        // declares an additional catalog, named 'testLibs', from the 'test-libs.versions.toml' file
+        androidx {
+            from(files('gradle/androidx.versions.toml'))
+        }
+    }
+}
+
 rootProject.name = "AndroidDevChallenge"
 include ':app'

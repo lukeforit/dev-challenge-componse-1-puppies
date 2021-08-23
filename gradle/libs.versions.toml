@@ -1,0 +1,35 @@
+[versions]
+# Core
+gradle-tools = "7.0.0"
+kotlin = "1.5.21"
+
+# Ben Manes Gradle dependencies versions https://github.com/ben-manes/gradle-versions-plugin
+ben-manes = "0.39.0"
+
+# Google
+google-material = "1.4.0"
+google-accompanist = "0.10.0"
+
+# JetBrains
+coroutines = "1.5.0"
+
+# Tests
+junit = "4.13.2"
+
+
+[libraries]
+# Google
+google-material = { module = "com.google.android.material:material", version.ref = "google-material" }
+google-accompanist-glide = { module = "com.google.accompanist:accompanist-glide", version.ref = "google-accompanist" }
+google-accompanist-insets = { module = "com.google.accompanist:accompanist-insets", version.ref = "google-accompanist" }
+google-accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "google-accompanist" }
+
+# JetBRains
+jetbrains-coroutine = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines"}
+
+#Tests
+test-junit = { module = "junit:junit", version.ref = "junit" }
+
+
+[bundles]
+accompanist = ["google-accompanist-glide", "google-accompanist-insets", "google-accompanist-systemuicontroller"]

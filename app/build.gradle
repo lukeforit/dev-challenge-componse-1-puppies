@@ -54,7 +54,8 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerExtensionVersion androidx.versions.compose.core.get()
+        kotlinCompilerVersion libs.versions.kotlin.get()
     }
 
     packagingOptions {
@@ -66,35 +67,20 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.5.0'
-    implementation 'androidx.appcompat:appcompat:1.3.0'
-    implementation 'com.google.android.material:material:1.3.0'
-    implementation "androidx.activity:activity-compose:1.3.0-beta02"
-    implementation "androidx.compose.ui:ui:$compose_version"
-    implementation "androidx.compose.material:material:$compose_version"
-    implementation "androidx.compose.material:material-icons-extended:$compose_version"
-    implementation "androidx.compose.ui:ui-tooling:$compose_version"
-    implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+
+    implementation androidx.bundles.base
+    implementation androidx.bundles.compose
+    implementation androidx.lifecycle
+
+    implementation libs.google.material
+    implementation libs.jetbrains.coroutine
+    implementation libs.bundles.accompanist
+
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
 
-    // This causes compilation error with Could not find androidx.ui:ui-material-icons-extended:1.0.0-beta07
-//    implementation "androidx.ui:ui-material-icons-extended:$compose_version"
+    testImplementation libs.test.junit
 
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3'
+    androidTestImplementation androidx.bundles.android.test
 
-    implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
-    implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
-    implementation "androidx.navigation:navigation-compose:2.4.0-alpha02"
-
-    implementation "com.google.accompanist:accompanist-glide:0.10.0"
-    implementation "com.google.accompanist:accompanist-insets:0.10.0"
-    implementation "com.google.accompanist:accompanist-systemuicontroller:0.10.0"
-
-    testImplementation 'junit:junit:4.13.2'
-
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+    debugImplementation androidx.compose.tooling
 }
