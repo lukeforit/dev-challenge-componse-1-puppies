@@ -7,13 +7,19 @@
 
 ## :scroll: Description
 <!--- Describe your app in one or two sentences -->
-The app displays list of dogs from the fixed repository with a search view at the top that crashes the app with weird exception. It presents details screen - just an image and a name.
+The app was originally written for learning purposes for #dev-challenge-compose. It's a simple master-detail concept following modern android development ([MAD Scorecard](https://madscorecard.withgoogle.com/scorecard/share/4100143987/)).
 
 ## :bulb: Motivation and Context
 <!--- Optionally point readers to interesting parts of your submission. -->
 <!--- What are you especially proud of? -->
-Horrible experience as AS Canary can't read JDK 11 despite setting  JAVA_HOME, gradle properties or IDE settings.
-Plot twist: it didn't work just from the terminal ...
+
+Some key facts about th app:
+- It's in Kotlin, because everyone loves Kotlin
+- It uses [Compose](https://developer.android.com/jetpack/compose) - of course! Say farewell to `xml` layouts. This includes dependencies for navigation, live data, material and others. 
+- It's built with AndroidX architecture components and navigation component (tied to compose). Taking benefits of view models it's a simple MVVM - just one view model - nothing crazy. 
+- It utilizes beauty of [Gradle version catalog](https://docs.gradle.org/current/userguide/platforms.html)...
+- ... along with Ben Manes [Gradle version plugin](https://github.com/ben-manes/gradle-versions-plugin) wih simple setup to skip alpha versions, if there is a stable one used. 
+
 
 ## :camera_flash: Screenshots
 <!-- You can add more screenshots here if you like -->
